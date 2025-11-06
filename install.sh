@@ -1,13 +1,15 @@
 install() {
     cd ~
-    mkdir temp
-    cd temp
     git clone "https://github.com/Th3Catalyst/dotfiles.git"
     echo "Copying files..."
-    scp -vvv ~/temp/dotfiles/.nanorc ~/
-    scp -vvv ~/temp/dotfiles/.bash_profile ~/
+    scp -vvv ~/dotfiles/.nanorc ~/
+    scp -vvv ~/dotfiles/.bash_profile ~/
+    scp -vvv ~/dotfiles/.basrc ~/
     echo "Copying complete"
     cd ~
+    echo "Sourcing .bashrc..."
+    source ~/.bashrc
     echo "Cleaning up..."
-    rm -rf temp
+    rm ~/install.sh
+    echo "Install complete"
 }
