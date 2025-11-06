@@ -9,5 +9,5 @@ install() {
     echo "Copying complete"
     cd ~
     echo "Cleaning up..."
-    rm -r temp
+    rm -rf temp
 }
