@@ -2,7 +2,6 @@ set mouse
 set autoindent
 set historylog
 set stateflags
-set smooth
 set tabstospaces
 set linenumbers
 set softwrap
