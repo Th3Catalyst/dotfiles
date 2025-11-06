@@ -37,7 +37,7 @@ NRR() {
         return
     else
         
-        if [ $cloneURL =~ ^https://github.com/[^/]+/([\.]+).git]; then
+        if [[ $cloneURL =~ ^https://github.com/[^/]+/([\.]+).git$ ]]; then
             
             if [! $repoName == '']; then
                 repoName = ${BASH_REMATCH[1]}
