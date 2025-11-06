@@ -4,7 +4,7 @@ install() {
     echo "Copying files..."
     scp -vvv ~/dotfiles/.nanorc ~/
     scp -vvv ~/dotfiles/.bash_profile ~/
-    scp -vvv ~/dotfiles/.basrc ~/
+    scp -vvv ~/dotfiles/.bashrc ~/
     echo "Copying complete"
     cd ~
     echo "Sourcing .bashrc..."

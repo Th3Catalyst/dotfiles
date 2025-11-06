@@ -4,6 +4,8 @@ fi
 
 cd ~
 
+updateDotfiles
+
 clear
 
 fastfetch
