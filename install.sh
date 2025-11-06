@@ -8,7 +8,6 @@ install() {
     scp -vvv ~/temp/dotfiles/.bash_profile ~/
     echo "Copying complete"
     cd ~
-    echo "Sourcing files..."
-    source ~/.bashrc
+    echo "Cleaning up..."
     rm -r temp
 }
