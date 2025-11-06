@@ -4,7 +4,6 @@ scipnet() {
 }
 
 updateDotfiles() {
-    tempDir = pwd
     cd ~/dotfiles
     echo "Pulling..."
     git pull
@@ -12,7 +11,6 @@ updateDotfiles() {
     scp -vvv ~/dotfiles/.nanorc ~/
     scp -vvv ~/dotfiles/.bash_profile ~/
     scp -vvv ~/dotfiles/.bashrc ~/
-    cd $tempDir
     echo "Sourcing..."
     source .bashrc
 }
