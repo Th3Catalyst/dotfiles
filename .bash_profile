@@ -2,7 +2,7 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-export CURRENT_DIRECTORY = $(pwd)
+export CURRENT_DIRECTORY=$(pwd)
 
 updateDotfiles
 
