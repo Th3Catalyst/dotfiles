@@ -2,7 +2,7 @@ if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
 
-tempDir = pwd
+export CURRENT_DIRECTORY = $(pwd)
 
 updateDotfiles
 
@@ -10,4 +10,4 @@ clear
 
 fastfetch
 
-cd $tempDir
+cd $CURRENT_DIRECTORY
