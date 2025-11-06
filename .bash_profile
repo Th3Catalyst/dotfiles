@@ -4,7 +4,7 @@ fi
 
 export CURRENT_DIRECTORY=$(pwd)
 
-updateDotfiles
+udf
 
 clear
 

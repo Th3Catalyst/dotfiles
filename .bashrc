@@ -1,52 +1,61 @@
-scipnet() {
-    cd ~/scipnet
-    python scipnet.py
-}
 
-updateDotfiles() {
+
+udf() {
+    temp=${pwd}
     cd ~/dotfiles
     echo "Pulling..."
     git pull
     echo "Copying files..."
-    scp -vvv ~/dotfiles/.nanorc ~/
-    scp -vvv ~/dotfiles/.bash_profile ~/
-    scp -vvv ~/dotfiles/.bashrc ~/
+    scp -v ~/dotfiles/.nanorc ~/
+    scp -v ~/dotfiles/.bash_profile ~/
+    scp -v ~/dotfiles/.bashrc ~/
     echo "Sourcing..."
-    source .bashrc
+    source ~/.bashrc
+    cd $temp
 }
 
 
-NRR() {
-    cloneURL = $1
-    help = 'f'
-    repoName = ""
-    branchName = "main"
-    while getopts "hf:b:" arg; do
-        case $arg in
-            h) help = 't' ;;
-            n) repoName=$OPTARG ;;
-            b) branchName=$OPTARG ;;
+nrr() {
+    OPTIND=1
+    help='f'
+    repoName=""
+    branchName="main"
+
+    while getopts 'hn:b:' arg; do
+        case "$arg" in
+            h)
+                help='t'
+                ;;
+            n)
+                repoName="$OPTARG"
+                ;;
+            b)
+                branchName="$OPTARG"
+                ;;
         esac
     done
-    if [$help == 't']; then
-        printf "Usage: NRR [-h] <URL> [-n <repo name>] [-b <branch name>] \nCreate a new local clone of a github repository.\n\t-h \t\t\t displays this help text.\n\t-n \t\t\t the name of the folder in which to put the repository.\n\t   \t\t\t defaults to the name of the github repository.\n\t-b \t\t\t branch name you want to clone.\n\t   \t\t\t defaults to main."
+    shift $((OPTIND - 1))
+    cloneURL=$1
+    if [[ $help == 't' ]]; then
+        printf "Usage: NRR [-h] <URL> [-n <repo name>] [-b <branch name>] \nCreate a new local clone of a github repository.\n\t-h \t\t\t displays this help text.\n\t-n \t\t\t the name of the folder for the repository.\n\t   \t\t\t defaults to the name of the github repository.\n\t-b \t\t\t branch name you want to clone.\n\t   \t\t\t defaults to main."
         return
     fi
-    if [$# -eq 0]; then
+    if [ $# -eq 0 ]; then
         echo "The NRR function takes 1 argument, but 0 were given."
         return
     else
         
-        if [[ $cloneURL =~ ^https://github.com/[^/]+/([\.]+).git$ ]]; then
+        if [[ $cloneURL =~ ^https://github.com/[^/]+/([^\.]+).git$ ]]; then
             
-            if [! $repoName == '']; then
-                repoName = ${BASH_REMATCH[1]}
+            if [[ "${repoName}" == "" ]]; then
+                repoName=${BASH_REMATCH[1]}
             fi
             mkdir $repoName
             cd $repoName
             git init
             git remote add origin $cloneURL
             git pull origin $branchName
+            git checkout $branchName
             return
 
 
@@ -56,3 +65,11 @@ NRR() {
         fi
     fi
 }
+
+scipnet() {
+    cd ~/scipnet
+    python scipnet.py
+}
+
+alias la='ls -la'
+alias gp='git pull origin'
