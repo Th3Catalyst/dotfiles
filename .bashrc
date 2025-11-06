@@ -15,3 +15,8 @@ updateDotfiles() {
     echo "Sourcing..."
     source .bashrc
 }
+
+
+nlr() {
+
+}
