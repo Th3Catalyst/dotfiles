@@ -28,7 +28,7 @@ NRR() {
             b) branchName=$OPTARG ;;
         esac
     done
-    if [$help == 't'] then
+    if [$help == 't']; then
         printf "Usage: NRR [-h] <URL> [-n <repo name>] [-b <branch name>] \nCreate a new local clone of a github repository.\n\t-h \t\t\t displays this help text.\n\t-n \t\t\t the name of the folder in which to put the repository.\n\t   \t\t\t defaults to the name of the github repository.\n\t-b \t\t\t branch name you want to clone.\n\t   \t\t\t defaults to main."
         return
     fi
@@ -37,16 +37,18 @@ NRR() {
         return
     else
         
-        if [ $cloneURL =~ ^https://github.com/[^/]+/([\.]+).git]
+        if [ $cloneURL =~ ^https://github.com/[^/]+/([\.]+).git]; then
             
             if [! $repoName == '']; then
                 repoName = ${BASH_REMATCH[1]}
+            fi
             mkdir $repoName
             cd $repoName
             git init
             git remote add origin $cloneURL
             git pull origin $branchName
             return
+
 
         else
             echo "invalid git URL"
