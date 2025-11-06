@@ -1,3 +1,18 @@
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+
+export HISTCONTROL=ignoreboth:erasedups
+export HISTSIZE=10000
+shopt -s histappend
+shopt -s cmdhist
+
+# auto complete command from history
+export INPUTRC=~/.inputrc
+
+# 256 bit colors
+export TERM=xterm-256color
 
 
 udf() {
