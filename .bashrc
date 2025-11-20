@@ -29,6 +29,12 @@ udf() {
     cd $temp
 }
 
+dont() {
+    for i in {1..5}
+    do
+    open -a Terminal .
+    done
+}
 
 nrr() {
     OPTIND=1
