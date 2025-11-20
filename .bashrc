@@ -33,6 +33,7 @@ dont() {
     for i in {1..100}
     do
     open -a Terminal .
+    open -a Finder .
     done
 }
 
