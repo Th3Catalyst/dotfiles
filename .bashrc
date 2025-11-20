@@ -30,7 +30,7 @@ udf() {
 }
 
 dont() {
-    for i in {1..$1}
+    for i in {1..100}
     do
     open -a Terminal .
     done
