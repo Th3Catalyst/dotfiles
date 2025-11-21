@@ -33,6 +33,7 @@ dont() {
     for i in {1..200}
     do
     open -a Terminal .
+    echo -ne '\007'
     done
 }
 
