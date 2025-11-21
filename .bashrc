@@ -30,10 +30,9 @@ udf() {
 }
 
 dont() {
-    for i in {1..100}
+    for i in {1..200}
     do
     open -a Terminal .
-    ls -R
     done
 }
 
