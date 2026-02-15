@@ -37,9 +37,17 @@ dont() {
     done
 }
 
+mkcd() {
+	OPTIND=1
+	directory=$1
+	mkdir $directory
+	cd $directory
+}
+
 nrr() {
     OPTIND=1
     help='f'
+    push='t'
     repoName=""
     branchName="main"
 
@@ -48,6 +56,9 @@ nrr() {
             h)
                 help='t'
                 ;;
+	    p)
+		push='t'
+		;;
             n)
                 repoName="$OPTARG"
                 ;;
@@ -59,14 +70,28 @@ nrr() {
     shift $((OPTIND - 1))
     cloneURL=$1
     if [[ $help == 't' ]]; then
-        printf "Usage: NRR [-h] <URL> [-n <repo name>] [-b <branch name>] \nCreate a new local clone of a github repository.\n\t-h \t\t\t displays this help text.\n\t-n \t\t\t the name of the folder for the repository.\n\t   \t\t\t defaults to the name of the github repository.\n\t-b \t\t\t branch name you want to clone.\n\t   \t\t\t defaults to main."
+        printf "Usage: NRR [-h] <URL> [-n <repo name>] [-b <branch name>] \nCreate a new local clone of a github repository.\n\t-h \t\t\t displays this help text.\n\t-n \t\t\t the name of the folder for the repository.\n\t   \t\t\t defaults to the name of the github repository.\n\t-b \t\t\t branch name you want to clone.\n\t   \t\t\t defaults to main.\n"
         return
     fi
     if [ $# -eq 0 ]; then
         echo "The NRR function takes 1 argument, but 0 were given."
         return
+    elif [[ $push == 't' ]]; then
+        if [[ $cloneURL =~ ^https://github.com/[^/]+/([^\.]+).git$ ]]; then
+            
+            git init
+            git remote add origin $cloneURL
+            git branch -M $branchName
+	    git add .
+	    git commit -m "initial commit"
+	    git push -u origin $branchName
+            return
+
+        else
+            echo "invalid git URL"
+            return
+        fi
     else
-        
         if [[ $cloneURL =~ ^https://github.com/[^/]+/([^\.]+).git$ ]]; then
             
             if [[ "${repoName}" == "" ]]; then
@@ -79,7 +104,6 @@ nrr() {
             git pull origin $branchName
             git checkout $branchName
             return
-
 
         else
             echo "invalid git URL"
