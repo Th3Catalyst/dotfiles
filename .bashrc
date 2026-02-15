@@ -13,7 +13,7 @@ export INPUTRC=~/.inputrc
 
 # 256 bit colors
 export TERM=xterm-256color
-
+export PS1="\w : \u : \A : \#|\! \$ "
 
 udf() {
     temp=${pwd}
@@ -116,6 +116,8 @@ scipnet() {
     cd ~/scipnet
     python scipnet.py
 }
-
+alias ga="git add"
+alias com="git commit -m"
 alias la='ls -la'
-alias gp='git pull origin'
+alias gpl='git pull origin'
+alias gph='git push origin'
