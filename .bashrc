@@ -112,8 +112,9 @@ nrr() {
     fi
 }
 
-SCiPnet() {
-    cd ~/SCiPnet/scipnet.py
+scipnet() {
+    python ~/SCiPnet/SCiPnet.py
+
 }
 alias sps="sudo pacman -S"
 alias ga="git add"
