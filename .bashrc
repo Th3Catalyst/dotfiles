@@ -47,7 +47,7 @@ mkcd() {
 nrr() {
     OPTIND=1
     help='f'
-    push='t'
+    push='f'
     repoName=""
     branchName="main"
 
@@ -113,8 +113,7 @@ nrr() {
 }
 
 scipnet() {
-    cd ~/scipnet
-    python scipnet.py
+    cd ~/scipnet/scipnet.py
 }
 alias sps="sudo pacman -S"
 alias ga="git add"
