@@ -116,6 +116,7 @@ scipnet() {
     cd ~/scipnet
     python scipnet.py
 }
+alias sps="sudo pacman -S"
 alias ga="git add"
 alias com="git commit -m"
 alias la='ls -la'
