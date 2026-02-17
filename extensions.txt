@@ -1,0 +1,8 @@
+kylinideteam.cmake-intellisence
+kylinideteam.cppdebug
+kylinideteam.kylin-clangd
+kylinideteam.kylin-cmake-tools
+kylinideteam.kylin-cpp-pack
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-python-envs
