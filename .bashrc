@@ -15,6 +15,13 @@ export INPUTRC=~/.inputrc
 export TERM=xterm-256color
 export PS1="\w : \u : \A : \#|\! \$ "
 
+alias sps="sudo pacman -S"
+alias ga="git add"
+alias com="git commit -m"
+alias la='ls -la'
+alias gpl='git pull origin'
+alias gph='git push origin'
+
 udf() {
     temp=${pwd}
     cd ~/dotfiles
@@ -116,9 +123,3 @@ scipnet() {
     python ~/SCiPnet/SCiPnet.py
 
 }
-alias sps="sudo pacman -S"
-alias ga="git add"
-alias com="git commit -m"
-alias la='ls -la'
-alias gpl='git pull origin'
-alias gph='git push origin'
