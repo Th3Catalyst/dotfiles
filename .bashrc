@@ -13,7 +13,7 @@ export INPUTRC=~/.inputrc
 
 # 256 bit colors
 export TERM=xterm-256color
-export PS1="\w : \u : \A : \#|\! \$ "
+export PS1="\n|―[ \w ]―――[ \u ]―――[ \A ]―――[ \#|\! ] \n∟――――[\$] "
 
 alias sps="sudo pacman -S"
 alias ga="git add"
