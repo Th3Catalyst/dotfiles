@@ -13,7 +13,7 @@ export INPUTRC=~/.inputrc
 
 # 256 bit colors
 export TERM=xterm-256color
-export PS1="\n\033[1m\033[32m|―[ \033[37m\w \033[32m]―――[ \033[37m\u \033[32m]―――[ \033[37m\A \033[32m]―――[ \033[37m\#|\! \033[32m] \n∟――――[\033[37m\$\033[32m] \033[0m"
+export PS1="\n\[\033[1m\033[32m\]─┬──┤ \[\033[37m\]\w \[\033[32m\]├───┤ \[\033[37m\]\u \[\033[32m\]├───┤ \[\033[37m\]\A \[\033[32m\]├───┤ \[\033[37m\]\#|\! \[\033[32m\]│ \n\[\033[1m\] └───┤\[\033[37m\]\$\[\033[32m\]│ \[\033[0m\]"
 
 alias sps="sudo pacman -S"
 alias ga="git add"
@@ -21,6 +21,15 @@ alias com="git commit -m"
 alias la='ls -la'
 alias gpl='git pull origin'
 alias gph='git push origin'
+alias snvdrain='sudo nvidia-smi drain -p 0000:01:00.0 -m'
+alias kdoc='kscreen-doctor'
+
+kdoc-mode() {
+	OPTIND=1
+	display=$1
+	mode=$2
+	kdoc output.$display.mode.$mode
+}
 
 udf() {
     temp=${pwd}
@@ -34,14 +43,6 @@ udf() {
     echo "Sourcing..."
     source ~/.bashrc
     cd $temp
-}
-
-dont() {
-    for i in {1..200}
-    do
-    open -a Terminal .
-    echo -ne '\007'
-    done
 }
 
 mkcd() {
