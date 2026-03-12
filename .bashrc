@@ -23,6 +23,10 @@ alias gpl='git pull origin'
 alias gph='git push origin'
 alias snvdrain='sudo nvidia-smi drain -p 0000:01:00.0 -m'
 alias kdoc='kscreen-doctor'
+alias sys='systemctl'
+alias gr='grep'
+alias nvrun='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+
 
 kdoc-mode() {
 	OPTIND=1
