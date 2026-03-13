@@ -18,6 +18,7 @@ export PS1="\n\[\033[1m\033[32m\]─┬──┤ \[\033[37m\]\w \[\033[32m\]├�
 alias sps="sudo pacman -S"
 alias ga="git add"
 alias com="git commit -m"
+alias ll='ls -l'
 alias la='ls -la'
 alias gpl='git pull origin'
 alias gph='git push origin'
