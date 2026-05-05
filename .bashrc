@@ -38,13 +38,13 @@ kdoc-mode() {
 
 udf() {
     temp=${pwd}
-    cd ~/dotfiles
+    cd ~/git-repos/dotfiles
     echo "Pulling..."
     git pull
     echo "Copying files..."
-    scp -v ~/dotfiles/.nanorc ~/
-    scp -v ~/dotfiles/.bash_profile ~/
-    scp -v ~/dotfiles/.bashrc ~/
+    scp -v ~/dotfiles/git-repos/.nanorc ~/
+    scp -v ~/dotfiles/git-repos/.bash_profile ~/
+    scp -v ~/dotfiles/git-repos/.bashrc ~/
     echo "Sourcing..."
     source ~/.bashrc
     cd $temp
