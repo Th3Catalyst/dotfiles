@@ -28,6 +28,8 @@ alias sys='systemctl'
 alias gr='grep'
 alias nvrun='__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
 alias source-venv='source .venv/bin/activate'
+alias srboot='sudo reboot'
+alias soff='sudo poweroff'
 
 kdoc-mode() {
 	OPTIND=1
