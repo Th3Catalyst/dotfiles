@@ -42,9 +42,9 @@ udf() {
     echo "Pulling..."
     git pull
     echo "Copying files..."
-    scp -v ~/dotfiles/git-repos/.nanorc ~/
-    scp -v ~/dotfiles/git-repos/.bash_profile ~/
-    scp -v ~/dotfiles/git-repos/.bashrc ~/
+    scp -v ~/git-repos/dotfiles/.nanorc ~/
+    scp -v ~/git-repos/dotfiles/.bash_profile ~/
+    scp -v ~/git-repos/dotfiles/.bashrc ~/
     echo "Sourcing..."
     source ~/.bashrc
     cd $temp
