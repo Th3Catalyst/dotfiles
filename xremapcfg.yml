@@ -1,0 +1,4 @@
+modmap:
+  - remap:
+      CapsLock: Esc
+
