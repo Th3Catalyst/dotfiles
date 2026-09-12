@@ -1,0 +1,54 @@
+
+xontrib load coreutils
+$XONSH_COLOR_STYLE = 'rrt'
+$PROMPT = '[{localtime}] {YELLOW}{env_name} {BOLD_BLUE}{user}@{hostname} {BOLD_GREEN}{cwd} {gitstatus}{RESET}\n@ '
+$PATH.append("/home/daniil/.cargo/bin")
+
+#aliases
+aliases["sps"] = "sudo pacman -S"
+aliases["ga"] = "git add"
+aliases["com"] = "git commit -m"
+aliases["ll"] = 'ls -lh'
+aliases["la"] = 'ls -lah'
+aliases["gpl"] = 'git pull origin'
+aliases["gph"] = 'git push origin'
+aliases["snvdrain"] = 'sudo nvidia-smi drain -p 0000:01:00.0 -m'
+aliases["kdoc"] = 'kscreen-doctor'
+aliases["sys"] = 'systemctl'
+aliases["gr"] = 'grep'
+aliases["nvrun"] = '__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia'
+aliases["source-venv"] = 'source .venv/bin/activate'
+aliases["srboot"] = 'sudo reboot'
+aliases["soff"] = 'sudo poweroff'
+aliases["git-tree"] = 'git log --oneline --graph --decorate --all'
+
+#functions
+def udf():
+    temp=${pwd}
+    cd ~/git-repos/dotfiles
+    echo "Pulling..."
+    git pull
+    echo "Copying files..."
+    scp -v ~/git-repos/dotfiles/.nanorc ~/
+    scp -v ~/git-repos/dotfiles/.bash_profile ~/
+    scp -v ~/git-repos/dotfiles/.bashrc ~/
+    echo "Sourcing..."
+    source ~/.bashrc
+    cd $temp
+
+def mkcd(dir):
+    mkdir @(dir)
+    cd @(dir)
+
+
+current_directory = $(pwd)
+udf
+clear
+cd @(current_directory)
+
+
+echo ""
+echo " █▀▀▀█  █▀▀█  ▄  █▀▀█  █▄  █  █▀▀▀  ▀▀█▀▀"
+echo " ▀▀▀▄▄  █     ▄  █▄▄█  █ █ █  █▀▀▀    █"
+echo " █▄▄▄█  █▄▄█  █  █     █  ▀█  █▄▄▄    █" 
+printf "\n\033[38;5;595m FACILITY INTERLINK\033[0m\n\n"
