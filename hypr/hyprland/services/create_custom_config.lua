@@ -21,9 +21,4 @@ hl.on("hyprland.start", function()
          createdFiles = createdFiles + 1
       end
    end
-
-   if createdFiles > 0 then
-      -- hl.exec_cmd("notify-send 'Hyprland config' 'Created " .. createdFiles .. " custom Hyprland config files in " .. baseCustomDir .. "' -a 'Hyprland'")
-      -- hl.exec_cmd("hyprctl reload")
-   end
 end)

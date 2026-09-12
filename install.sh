@@ -1,10 +1,10 @@
 install() {
     cd ~
-    git clone "https://github.com/Th3Catalyst/dotfiles.git"
+    git clone "https://github.com/Th3Catalyst/dotfiles.git" ".dots"
     echo "Copying files..."
-    scp -vvv ~/dotfiles/.nanorc ~/
-    scp -vvv ~/dotfiles/.bash_profile ~/
-    scp -vvv ~/dotfiles/.bashrc ~/
+    cp ~/.dots/.nanorc ~/
+    cp ~/.dots/.bash_profile ~/
+    cp ~/.dots/.bashrc ~/
     echo "Copying complete"
     cd ~
     echo "Sourcing .bashrc..."
