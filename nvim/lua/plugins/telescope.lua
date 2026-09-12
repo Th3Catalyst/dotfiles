@@ -1,4 +1,4 @@
-return { 
+return {
 	{
 		'nvim-telescope/telescope.nvim', version = '*',
 		dependencies = {

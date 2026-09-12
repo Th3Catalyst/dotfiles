@@ -35,6 +35,8 @@ return {
                 -- "rust_analyzer",
                 "vtsls",
                 "tailwindcss",
+                "vimls",
+                "ty"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -59,7 +61,7 @@ return {
                     vim.g.zig_fmt_autosave = 0
 
                 end,
-                ["lua_ls"] = function()
+                lua_ls = function()
                     local lspconfig = require("lspconfig")
 
                     lspconfig.lua_ls.setup {
@@ -131,5 +133,31 @@ return {
                 prefix = "",
             },
         })
+
+        vim.lsp.config("lua_ls", {
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = 'LuaJIT',
+                    },
+                    diagnostics = {
+                        globals = { 'vim', 'hl' },
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                        checkThirdParty = false,
+                    },
+                    format = {
+                        enable = true,
+                        defaultConfig = {
+                            indent_style = "space",
+                            indent_size = "2",
+                        }
+                    },
+                }
+            }
+        })
+
     end
 }

@@ -2,7 +2,7 @@
 hl.on("hyprland.start", function ()
     -- hl.exec_cmd('YDOTOOL_SOCKET=/run/user/1000/.ydotool_socket ydotoold')
     hl.exec_cmd('rfkill unblock all')
-    hl.exec_cmd('xremap /home/daniil/git-repos/dotfiles/xremapcfg.yml &')
+    hl.exec_cmd('xremap ~/.dots/misc/xremapcfg.yml &')
     -- hl.exec_cmd('/usr/bin/pipewire &')
     -- hl.exec_cmd('/usr/bin/pipewire-pulse &')
     -- hl.exec_cmd('/usr/bin/wireplumber &')
