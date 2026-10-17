@@ -36,7 +36,8 @@ return {
                 "vtsls",
                 "tailwindcss",
                 "vimls",
-                "ty"
+                "ty",
+                "nextls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
